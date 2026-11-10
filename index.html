@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#651b2b" name="theme-color"/>
+<title>V. Sabitha &amp; T. Boopalan | Wedding Invitation</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Noto+Serif+Tamil:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--wine:#681e32;--deep:#35121f;--gold:#d9b66e;--cream:#fff8ed;--rose:#f7e7df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--deep);font-family:'Cormorant Garamond',serif}
+button{font:inherit;cursor:pointer}.screen{min-height:100svh;position:relative;overflow:hidden}
+#intro{background:#160d10;display:grid;place-items:center;color:white}
+#intro video{position:absolute;width:100%;height:100%;object-fit:contain;background:#10090c}
+.intro-shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.5),transparent 35%,rgba(0,0,0,.12));pointer-events:none}
+#introFallback{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);border:1px solid #e5c77f;background:#6b2037;color:#fff;padding:12px 24px;border-radius:30px}
+#enterBtn{display:none;position:absolute;bottom:9%;left:50%;transform:translateX(-50%);border:1px solid var(--gold);background:linear-gradient(135deg,#7c263d,#421626);color:#fff8e9;padding:15px 35px;border-radius:40px;font-size:1.2rem;letter-spacing:2px;box-shadow:0 8px 35px #0008;animation:pulse 1.7s infinite}
+@keyframes pulse{50%{box-shadow:0 8px 42px #e6c77877}}
+#invitation{display:none;background:radial-gradient(circle at top,#fffdf7,#f5e4d8 70%);padding:30px 16px 60px}
+.page{max-width:850px;margin:0 auto 28px;background:#fffaf1;border:1px solid #d8b66d;outline:5px double #d8b66d;outline-offset:-10px;box-shadow:0 15px 45px #5b27301c;padding:clamp(28px,6vw,62px) clamp(20px,7vw,70px);position:relative;text-align:center}
+.page:before,.page:after{content:"✦ ❧ ✦";color:#b58a45;letter-spacing:8px;display:block;font-size:20px}
+.kicker{font-size:1rem;letter-spacing:4px;text-transform:uppercase;color:#9b7040;margin:16px 0}
+h1,h2,h3,p{margin-top:0}.tamil{font-family:'Noto Serif Tamil',serif}.names{font-size:clamp(2.1rem,7vw,4rem);line-height:1.5;color:var(--wine);margin:15px 0}.amp{color:#bd9552;font-size:2rem}
+.welcome{font-size:1.45rem;line-height:1.65;color:#704452;max-width:620px;margin:12px auto 24px}
+.couple{width:min(100%,490px);max-height:600px;object-fit:cover;border-radius:48% 48% 12px 12px;border:7px solid #fff;outline:2px solid var(--gold);box-shadow:0 12px 35px #59253a2b}
+.role{font-size:1.2rem;color:#876044;margin-top:-8px}
+.goldline{width:100px;height:2px;background:var(--gold);margin:25px auto}
+.scratch-wrap{width:min(100%,420px);margin:24px auto 12px;position:relative;border-radius:18px;overflow:hidden;box-shadow:0 8px 24px #52203322}
+.scratch-under{background:linear-gradient(135deg,#8c2948,#4b182c);color:#fff;padding:30px 15px;min-height:155px;display:grid;place-content:center}
+.scratch-under small{letter-spacing:3px}.scratch-under strong{font-family:'Noto Serif Tamil',serif;font-size:2rem;color:#f5d78f}
+#scratchCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}
+.hint{color:#8d6b54;font-size:1.05rem}
+.countdown{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:25px auto}
+.timebox{background:#681e32;color:#fff8e9;border:1px solid var(--gold);border-radius:12px;min-width:76px;padding:12px 9px}
+.timebox b{display:block;font-size:2rem;font-weight:600}.timebox span{font-size:.85rem;letter-spacing:1px}
+.event-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:25px 0}
+.event-card{background:#fff4e8;border:1px solid #e0c58c;border-radius:18px;padding:22px 16px;min-width:0}
+.event-card h3{font-size:1.55rem;color:var(--wine);margin:5px 0 12px}
+.event-date{font-size:1.4rem;color:#9a6b34;font-weight:700}
+.event-card p{font-size:1.15rem;line-height:1.5;margin:8px 0}
+.flip{perspective:700px;min-height:42px;margin:8px 0 14px}
+.flip span{display:inline-block;animation:flipIn .8s both;transform-origin:top}
+@keyframes flipIn{from{transform:rotateX(-90deg);opacity:0}to{transform:rotateX(0);opacity:1}}
+.mapbtn{display:inline-block;text-decoration:none;background:var(--wine);color:#fff;padding:11px 19px;border-radius:30px;margin-top:10px;border:1px solid var(--gold);font-size:1rem;letter-spacing:1px}
+.mapbtn:hover{background:#3f1425}
+.location-block{padding:18px;border-top:1px solid #e2c98e;border-bottom:1px solid #e2c98e;margin:20px auto;max-width:650px}
+.location-block h3{color:var(--wine);font-size:1.6rem;margin:4px}
+.location-block p{font-size:1.2rem;line-height:1.5}
+.family{font-family:'Noto Serif Tamil',serif;font-size:1.2rem;line-height:2.1;color:#68253a}
+.compliments{font-size:1.15rem;letter-spacing:3px;color:#99703c;margin-bottom:15px}
+.footerquote{font-size:1.3rem;line-height:1.7;color:#704452}
+.petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}
+.petal{position:absolute;top:-30px;color:#d9ad62;opacity:.75;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.1}}
+@media(max-width:620px){.event-grid{grid-template-columns:1fr}.page{padding:30px 18px}.couple{max-height:480px}.timebox{min-width:65px}.timebox b{font-size:1.6rem}}
+
+html,body{width:100%;min-height:100%;overflow-x:hidden}
+#intro{min-height:100svh;min-height:100dvh}
+#intro video{width:100%;height:100%;object-fit:contain;object-position:center}
+#enterBtn{max-width:calc(100vw - 36px);white-space:nowrap;bottom:max(6%,env(safe-area-inset-bottom))}
+#invitation{padding:clamp(18px,4vw,30px) clamp(10px,3vw,16px) 50px}
+.page{width:100%;overflow-wrap:anywhere}
+img,video,canvas{max-width:100%}
+@media(max-width:620px){
+  .screen{min-height:100svh;min-height:100dvh}
+  #intro video{object-fit:contain}
+  #enterBtn{font-size:1rem;padding:13px 22px;letter-spacing:1px}
+  .page{padding:28px 15px;outline-offset:-7px}
+  .names{font-size:clamp(1.8rem,8vw,2.8rem)}
+  .welcome{font-size:1.15rem;line-height:1.55}
+  .kicker{font-size:.88rem;letter-spacing:2px}
+  .event-grid{grid-template-columns:minmax(0,1fr)}
+  .event-card{padding:18px 13px}
+  .countdown{gap:7px}
+  .timebox{min-width:calc(25% - 7px);padding:10px 5px}
+  .timebox b{font-size:1.4rem}
+  .timebox span{font-size:.7rem;letter-spacing:.5px}
+  .scratch-wrap{width:100%}
+  .couple{max-height:65vh}
+}
+@media(orientation:landscape) and (max-height:500px){
+  #intro video{object-fit:contain}
+  #enterBtn{bottom:4%;padding:9px 20px}
+}
+</style>
+</head>
+<body>
+<section aria-label="Wedding invitation video" class="screen" id="intro">
+<video autoplay id="introVideo" playsinline webkit-playsinline preload="auto">
+<source src="assets/invitation-video.mp4" type="video/mp4"/>
+</video>
+<div class="intro-shade"></div>
+<button id="enterBtn" type="button">✧ OPEN INVITATION ✧</button>
+</section>
+<main id="invitation">
+<div class="petals" id="petals"></div>
+<section class="page">
+<div class="kicker">With the blessings of the Almighty</div>
+<div class="kicker tamil">With the blessings of our elders</div>
+<img alt="Wedding couple" class="couple" src="assets/couple-photo.jpg"/>
+<p class="welcome tamil">With love and the blessings of our families, we begin a beautiful new journey. Please join us and make our celebration even more special.</p>
+<div class="goldline"></div>
+<div class="names tamil">வீ. சபிதா</div>
+<div class="role">(Nursing Officer)</div>
+<div class="amp">♥ &amp; ♥</div>
+<div class="names tamil">த. பூபாலன்</div>
+<div class="role">(Nursing Officer)</div>
+<p class="welcome">Two hearts, one beautiful journey. We would be honoured to have you with us as we begin our forever.</p>
+<div class="goldline"></div>
+
+
+
+
+
+</section>
+<section class="page">
+<div class="countdown" id="countdown">
+<div class="timebox"><b id="days">00</b><span>DAYS</span></div>
+<div class="timebox"><b id="hours">00</b><span>HOURS</span></div>
+<div class="timebox"><b id="minutes">00</b><span>MINUTES</span></div>
+<div class="timebox"><b id="seconds">00</b><span>SECONDS</span></div>
+</div><div class="kicker">The countdown begins</div><div class="scratch-wrap">
+<div class="scratch-under"><small>OUR WEDDING DAY</small><strong>22.11.2026</strong><small>♥ SAVE THE DATE ♥</small></div>
+<canvas id="scratchCanvas"></canvas>
+</div><p class="hint">Gently scratch the golden surface to reveal our special day</p><div class="kicker">Scratch to discover the date</div><div class="kicker">The celebrations</div>
+<h2 class="names tamil" style="font-size:2.3rem">Wedding Celebrations</h2>
+<p class="welcome">We warmly invite you to join us and bless both celebrations.</p>
+<div class="event-grid">
+<article class="event-card">
+<div class="kicker">Wedding</div>
+<h3 class="tamil">Wedding</h3>
+<div class="flip"><span class="event-date">22.11.2026</span></div>
+<p><strong>Marriage Hall</strong><br/>RKB RAJA BHUVANA MAHAL</p>
+<p><strong>Venue</strong><br/>127, Main Road,<br/>Varichikudy, Karaikal.</p>
+</article>
+<article class="event-card">
+<div class="kicker">Reception</div>
+<h3 class="tamil">Reception</h3>
+<div class="flip"><span class="event-date" style="animation-delay:.25s">25.11.2026</span></div>
+<p><strong>Venue</strong><br/>Thiruvidaimaruthur Main Road,<br/>Kalaingar Pasarai.</p>
+</article>
+</div>
+<p class="footerquote">Your presence will make our celebrations even more memorable. We look forward to celebrating with you!</p>
+</section>
+<section class="page">
+<div class="kicker">Find us</div>
+<h2 class="names" style="font-size:2.5rem">Event Locations</h2>
+<div class="location-block">
+<h3>♥ Wedding Location</h3>
+<p><strong>22 November 2026</strong><br/>RKB RAJA BHUVANA MAHAL<br/>127, Main Road, Varichikudy, Karaikal.</p>
+<a class="mapbtn" href="https://maps.app.goo.gl/cUvtZVHY3KmZqdUt5?g_st=ac" rel="noopener" target="_blank">OPEN IN MAPS ↗</a>
+</div>
+<div class="location-block">
+<h3>♥ Reception Location</h3>
+<p><strong>25 November 2026</strong><br/>Thiruvidaimaruthur Main Road,<br/>Kalaingar Pasarai.</p>
+<a class="mapbtn" href="https://maps.app.goo.gl/pKv8yvGpHtK8aGxp9" rel="noopener" target="_blank">OPEN IN MAPS ↗</a>
+</div>
+<div class="goldline"></div>
+<p class="footerquote tamil">We warmly invite you and your family to join us, celebrate this special occasion, and bless the couple.</p>
+<p class="compliments">WITH BEST COMPLIMENTS FROM</p>
+<div class="family">
+      R. VEERAMANI<br/>
+      V. P. MALA VEERAMANI<br/>
+      V. VIDHYA<br/>
+      V. RUTHRA
+    </div>
+<div class="goldline"></div>
+<p class="tamil" style="font-size:1.5rem;color:#9b7040">With best wishes from our family</p>
+<p class="footerquote">With love, blessings and warm wishes ❤️</p>
+<div class="kicker">Thank you</div>
+</section>
+</main>
+<audio autoplay="True" id="backgroundMusic" loop="True" preload="auto"><source src="assets/wedding-song.mp3" type="audio/mpeg"/></audio>
+<script>
+const video = document.getElementById('introVideo');
+const enter = document.getElementById('enterBtn');
+const music = document.getElementById('backgroundMusic');
+
+function showEnter() {
+  enter.style.display = 'block';
+}
+video.addEventListener('ended', showEnter);
+video.addEventListener('error', showEnter);
+
+/* Try audible autoplay first. If the browser blocks sound autoplay,
+   continue the video silently rather than showing an extra play button. */
+video.muted = false;
+video.defaultMuted = false;
+const introAttempt = video.play();
+if (introAttempt && typeof introAttempt.catch === 'function') {
+  introAttempt.catch(() => {
+    video.muted = true;
+    video.play().catch(showEnter);
+  });
+}
+
+/* A tap anywhere on the intro (not a separate play button) retries sound,
+   because iOS/Android browsers require a user gesture for audible media. */
+document.getElementById('intro').addEventListener('pointerdown', () => {
+  if (video.paused || video.muted) {
+    video.muted = false;
+    video.play().catch(() => { video.muted = true; });
+  }
+}, { once: true });
+
+enter.addEventListener('click', () => {
+  document.getElementById('intro').style.display = 'none';
+  document.getElementById('invitation').style.display = 'block';
+  window.scrollTo(0, 0);
+  startPetals();
+  resizeScratch();
+
+  /* play() is called directly inside the button gesture so mobile browsers
+     are more likely to permit the song; loop keeps it playing site-wide. */
+  music.volume = 0.85;
+  music.play().catch(() => {
+    /* Browser/device autoplay restrictions may still require another tap. */
+  });
+});
+
+function resizeScratch() {
+  const c = document.getElementById('scratchCanvas'), wrap = c.parentElement;
+  const w = wrap.clientWidth, h = wrap.clientHeight, dpr = window.devicePixelRatio || 1;
+  c.width = w * dpr; c.height = h * dpr; c.style.width = w + 'px'; c.style.height = h + 'px';
+  const scratchCtx = c.getContext('2d');
+  scratchCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const grad = scratchCtx.createLinearGradient(0, 0, w, h);
+  grad.addColorStop(0, '#e7cb8c'); grad.addColorStop(.5, '#b78a48'); grad.addColorStop(1, '#f0dba8');
+  scratchCtx.globalCompositeOperation = 'source-over';
+  scratchCtx.fillStyle = grad; scratchCtx.fillRect(0, 0, w, h);
+  scratchCtx.fillStyle = '#57351f'; scratchCtx.textAlign = 'center';
+  scratchCtx.font = 'bold 17px Georgia'; scratchCtx.fillText('✧ SCRATCH HERE ✧', w / 2, h / 2 + 6);
+  scratchCtx.globalCompositeOperation = 'destination-out';
+}
+let scratching = false;
+const canvas = document.getElementById('scratchCanvas'), ctx = canvas.getContext('2d');
+function point(e) { const r = canvas.getBoundingClientRect(); return {x:e.clientX-r.left,y:e.clientY-r.top}; }
+canvas.addEventListener('pointerdown', e => { scratching=true; canvas.setPointerCapture(e.pointerId); scratch(e); });
+canvas.addEventListener('pointermove', e => { if (scratching) scratch(e); });
+canvas.addEventListener('pointerup', () => { scratching=false; });
+canvas.addEventListener('pointercancel', () => { scratching=false; });
+function scratch(e) { const p=point(e); ctx.beginPath(); ctx.arc(p.x,p.y,23,0,Math.PI*2); ctx.fill(); if(Math.random()<.08) checkScratch(); }
+function checkScratch() {
+  const data=ctx.getImageData(0,0,canvas.width,canvas.height).data; let clear=0;
+  for(let i=3;i<data.length;i+=32) if(data[i]<40) clear++;
+  if(clear/(data.length/32)>.38) { canvas.style.transition='opacity .5s'; canvas.style.opacity='0'; setTimeout(()=>canvas.style.display='none',550); }
+}
+window.addEventListener('resize',()=>{if(canvas.style.display!=='none' && document.getElementById('invitation').style.display==='block') resizeScratch();});
+
+function updateCountdown() {
+  const target=new Date('2026-11-22T00:00:00+05:30').getTime(), now=Date.now(), diff=Math.max(0,target-now);
+  document.getElementById('days').textContent=Math.floor(diff/86400000);
+  document.getElementById('hours').textContent=String(Math.floor(diff%86400000/3600000)).padStart(2,'0');
+  document.getElementById('minutes').textContent=String(Math.floor(diff%3600000/60000)).padStart(2,'0');
+  document.getElementById('seconds').textContent=String(Math.floor(diff%60000/1000)).padStart(2,'0');
+}
+updateCountdown(); setInterval(updateCountdown,1000);
+function startPetals() {
+  const box=document.getElementById('petals'); if(box.dataset.started)return; box.dataset.started='1';
+  setInterval(()=>{const p=document.createElement('span');p.className='petal';p.textContent=['✦','✧','❀','♥'][Math.floor(Math.random()*4)];p.style.left=Math.random()*100+'%';p.style.animationDuration=(5+Math.random()*6)+'s';p.style.fontSize=(12+Math.random()*13)+'px';box.appendChild(p);setTimeout(()=>p.remove(),12000)},450);
+}
+</script>
+</body>
+</html>
